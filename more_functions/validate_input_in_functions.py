@@ -5,9 +5,10 @@ Program: validate_input_in_function.py
 
 prompts user for name and score, prints values to console
 """
+import unittest
 
 
-def score_input(test_name, test_score=0, invalid_message='Invalid test score, try again!'):
+def score_input(test_name, test_score = 0, invalid_message='Invalid test score, try again!'):
     """
     Function that accepts and returns a string....
     :param test_name: The name of a test/exam
@@ -19,8 +20,11 @@ def score_input(test_name, test_score=0, invalid_message='Invalid test score, tr
     :return: formatted string with test and test score
     :rtype: String
     """
-    # print(f"{test_name}: {test_score}")
-    return (f"{test_name}: {test_score}")
+    if 0 <= test_score <= 100:
+        # print(f"{test_name}: {test_score}")
+        return f"{test_name}: {test_score}"
+    else:
+        return invalid_message
 
 if __name__ == '__main__':
     unittest.main("test1", 45)
